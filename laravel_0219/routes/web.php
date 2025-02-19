@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CarController;
 use Illuminate\Support\Facades\Route;
 
 // 一頁式網站的首頁
@@ -30,21 +31,23 @@ Route::get('/foodie', function () {
 });
 
 // car>index
-Route::get('/cars', function () {
-    return view('car.index');
-})->name('cars.index');
+// Route::get('/cars', function () {
+//     return view('car.index');
+// })->name('cars.index');
 
 // car>create
-Route::get('/cars/create', function () {
-    return view('car.create');
-})->name('cars.create');
+// Route::get('/cars/create', function () {
+//     return view('car.create');
+// })->name('cars.create');
 
 // car>updete
-Route::get('/cars/update', function () {
-    return view('car.update');
-})->name('cars.update');
+// Route::get('/cars/update', function () {
+//     return view('car.update');
+// })->name('cars.update');
 
 // car>del
-Route::get('/cars/del', function () {
-    return view('car.del');
-})->name('cars.del');
+// Route::get('/cars/del', function () {
+//     return view('car.del');
+// })->name('cars.del');
+
+Route::resource('cars', CarController::class);

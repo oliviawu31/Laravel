@@ -2,32 +2,44 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-    <title>Document</title>
-    <style>
-        .pic {
-            align-items: center;
-            width: 10px;
-        }
-    </style>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
-    <h2>index</h2>
-    <p>
-        <a href="{{ route('cars.create') }}">Create</a>
-    </p>
-    <p>
-        <a href="{{ route('cars.update') }}">Update</a>
-    </p>
-    <p>
-        <a href="{{ route('cars.del') }}">Del</a>
-    </p>
-    <div class="pic">
-        <img src="{{ asset('assets/images/22.jpg') }}" alt="">
+
+    <div class="container mt-3">
+        <h2>Cars Index</h2>
+        <div class="container mb-2">
+            <div class="row me-2">
+                <div class="col">
+                    <a href="{{ route('cars.create') }}">
+                        <button type="button" class="btn btn-success">Create</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>rank</th>
+            </thead>
+            <tbody>
+                <?php foreach ($data as $key => $value):?>
+                <tr>
+                    <td>{{ $value['id'] }}</td>
+                    <td>{{ $value['name'] }}</td>
+                    <td>{{ $value['rank'] }}</td>
+                </tr>
+                <?php endforeach;?>
+
+            </tbody>
+        </table>
     </div>
 
 </body>
